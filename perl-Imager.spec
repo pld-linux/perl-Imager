@@ -8,13 +8,13 @@
 Summary:	Imager - Perl extension for generating images
 Summary(pl):	Imager - rozszerzenie Perla do generowania obrazków
 Name:		perl-Imager
-Version:	0.41
+Version:	0.42
 Release:	1
 # same as perl
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
-# Source0-md5:	4a4fdfa670e472e643170bf8caf3c402
+# Source0-md5:	46275d8badb93e323345d520a5931017
 Patch0:		%{name}-tiff.patch
 URL:		http://www.develop-help.com/imager/
 BuildRequires:	freetype-devel >= 2.0
@@ -82,10 +82,10 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes README
-%{perl_vendorarch}/Imager.pm
-%{perl_vendorarch}/Imager
-%dir %{perl_vendorarch}/auto/Imager
-%{perl_vendorarch}/auto/Imager/Imager.bs
-%attr(755,root,root) %{perl_vendorarch}/auto/Imager/Imager.so
-%dir %{perl_vendorlib}/Imager
+%{perl_vendorarch}/%{pdir}.pm
+%{perl_vendorarch}/%{pdir}
+%dir %{perl_vendorarch}/auto/%{pdir}
+%{perl_vendorarch}/auto/%{pdir}/%{pdir}.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/%{pdir}/%{pdir}.so
+%dir %{perl_vendorlib}/%{pdir}
 %{_mandir}/man3/*
