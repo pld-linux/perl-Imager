@@ -69,6 +69,7 @@ EOF
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{perl_vendorlib}/Imager
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -86,4 +87,5 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{perl_vendorarch}/auto/Imager
 %{perl_vendorarch}/auto/Imager/Imager.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/Imager.so
+%dir %{perl_vendorlib}/Imager
 %{_mandir}/man3/*
