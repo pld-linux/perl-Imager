@@ -11,7 +11,7 @@ Name:		perl-Imager
 Version:	0.43
 Release:	1
 # same as perl
-License:	GPL or Artistic
+License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
 # Source0-md5:	53b25b7de75625bfc9c9c3a44c8c2f76
