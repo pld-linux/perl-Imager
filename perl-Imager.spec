@@ -3,8 +3,8 @@
 %bcond_without	tests	# do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
-%define	pdir	Imager
-%define	pnam	Imager
+%define		pdir	Imager
+%define		pnam	Imager
 Summary:	Imager - Perl extension for generating images
 Summary(pl):	Imager - rozszerzenie Perla do generowania obrazków
 Name:		perl-Imager
