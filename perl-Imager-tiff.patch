@@ -1,0 +1,93 @@
+--- Imager-0.41/tiff.c.orig	2002-01-23 03:34:20.000000000 +0100
++++ Imager-0.41/tiff.c	2003-10-25 19:13:41.560163392 +0200
+@@ -306,6 +306,14 @@
+   return im;
+ }
+ 
++static int _tiffMapProc(thandle_t h, tdata_t *b, toff_t *s)
++{
++	return 0;
++}
++static int _tiffUnmapProc(thandle_t h, tdata_t b, toff_t s)
++{
++}
++
+ /*
+ =item i_readtiff_wiol(im, ig)
+ 
+@@ -334,8 +342,8 @@
+ 		       (TIFFSeekProc) comp_seek,
+ 		       (TIFFCloseProc) ig->closecb,
+ 		       ig->sizecb ? (TIFFSizeProc) ig->sizecb : (TIFFSizeProc) sizeproc,
+-		       (TIFFMapFileProc) NULL,
+-		       (TIFFUnmapFileProc) NULL);
++		       (TIFFMapFileProc) _tiffMapProc,
++		       (TIFFUnmapFileProc) _tiffUnmapProc);
+   
+   if (!tif) {
+     mm_log((1, "i_readtiff_wiol: Unable to open tif file\n"));
+@@ -383,9 +391,9 @@
+ 		       (TIFFReadWriteProc) ig->writecb,
+ 		       (TIFFSeekProc) comp_seek,
+ 		       (TIFFCloseProc) ig->closecb,
+-		       (TIFFSizeProc) ig->sizecb,
+-		       (TIFFMapFileProc) NULL,
+-		       (TIFFUnmapFileProc) NULL);
++		       ig->sizecb ? (TIFFSizeProc) ig->sizecb : (TIFFSizeProc) sizeproc,
++		       (TIFFMapFileProc) _tiffMapProc,
++		       (TIFFUnmapFileProc) _tiffUnmapProc);
+   
+   if (!tif) {
+     mm_log((1, "i_readtiff_wiol: Unable to open tif file\n"));
+@@ -802,9 +810,9 @@
+ 		       (TIFFReadWriteProc) ig->writecb,
+ 		       (TIFFSeekProc)      comp_seek,
+ 		       (TIFFCloseProc)     ig->closecb, 
+-		       (TIFFSizeProc)      ig->sizecb,
+-		       (TIFFMapFileProc)   NULL,
+-		       (TIFFUnmapFileProc) NULL);
++		       ig->sizecb ? (TIFFSizeProc) ig->sizecb : (TIFFSizeProc) sizeproc,
++		       (TIFFMapFileProc)   _tiffMapProc,
++		       (TIFFUnmapFileProc) _tiffUnmapProc);
+   
+ 
+ 
+@@ -862,9 +870,9 @@
+ 		       (TIFFReadWriteProc) ig->writecb,
+ 		       (TIFFSeekProc)      comp_seek,
+ 		       (TIFFCloseProc)     ig->closecb, 
+-		       (TIFFSizeProc)      ig->sizecb,
+-		       (TIFFMapFileProc)   NULL,
+-		       (TIFFUnmapFileProc) NULL);
++		       ig->sizecb ? (TIFFSizeProc) ig->sizecb : (TIFFSizeProc) sizeproc,
++		       (TIFFMapFileProc)   _tiffMapProc,
++		       (TIFFUnmapFileProc) _tiffUnmapProc);
+   
+ 
+ 
+@@ -918,9 +926,9 @@
+ 		       (TIFFReadWriteProc) ig->writecb,
+ 		       (TIFFSeekProc)      comp_seek,
+ 		       (TIFFCloseProc)     ig->closecb, 
+-		       (TIFFSizeProc)      ig->sizecb,
+-		       (TIFFMapFileProc)   NULL,
+-		       (TIFFUnmapFileProc) NULL);
++		       ig->sizecb ? (TIFFSizeProc) ig->sizecb : (TIFFSizeProc) sizeproc,
++		       (TIFFMapFileProc)   _tiffMapProc,
++		       (TIFFUnmapFileProc) _tiffUnmapProc);
+   
+ 
+ 
+@@ -973,9 +981,9 @@
+ 		       (TIFFReadWriteProc) ig->writecb,
+ 		       (TIFFSeekProc)      comp_seek,
+ 		       (TIFFCloseProc)     ig->closecb, 
+-		       (TIFFSizeProc)      ig->sizecb,
+-		       (TIFFMapFileProc)   NULL,
+-		       (TIFFUnmapFileProc) NULL);
++		       ig->sizecb ? (TIFFSizeProc) ig->sizecb : (TIFFSizeProc) sizeproc,
++		       (TIFFMapFileProc)   _tiffMapProc,
++		       (TIFFUnmapFileProc) _tiffUnmapProc);
+   
+ 
+ 
