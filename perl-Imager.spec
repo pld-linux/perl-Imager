@@ -21,8 +21,7 @@ BuildRequires:	freetype-devel >= 2.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
-# giflib >= 4.1.0-4 or libungif
-BuildRequires:	libungif-devel >= 4.1.0
+BuildRequires:	giflib-devel >= 4.1.0-4
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
