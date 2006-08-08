@@ -40,7 +40,7 @@ skalowaæ, obcinaæ, nanosiæ tekst itd.
 
 %prep
 %setup -q -n %{pnam}-%{version}
-%patch -p1
+%patch0 -p1
 
 %build
 # manual configuration: we want freetype2 enabled and freetype1 disabled
