@@ -6,7 +6,7 @@
 %define		pdir	Imager
 %define		pnam	Imager
 Summary:	Imager - Perl extension for generating images
-Summary(pl):	Imager - rozszerzenie Perla do generowania obrazków
+Summary(pl.UTF-8):   Imager - rozszerzenie Perla do generowania obrazkÃ³w
 Name:		perl-Imager
 Version:	0.43
 Release:	1
@@ -32,11 +32,11 @@ write various image formats, draw primitive shapes like lines, and
 polygons, blend multiple images together in various ways, scale, crop,
 render text and more.
 
-%description -l pl
-Imager to modu³ do tworzenia i modyfikowania obrazków. Potrafi czytaæ
-i zapisywaæ ró¿ne formaty obrazków, rysowaæ proste kszta³ty takie jak
-linie i wielok±ty, mieszaæ wiele obrazków razem na ró¿ne sposoby,
-skalowaæ, obcinaæ, nanosiæ tekst itd.
+%description -l pl.UTF-8
+Imager to moduÅ‚ do tworzenia i modyfikowania obrazkÃ³w. Potrafi czytaÄ‡
+i zapisywaÄ‡ rÃ³Å¼ne formaty obrazkÃ³w, rysowaÄ‡ proste ksztaÅ‚ty takie jak
+linie i wielokÄ…ty, mieszaÄ‡ wiele obrazkÃ³w razem na rÃ³Å¼ne sposoby,
+skalowaÄ‡, obcinaÄ‡, nanosiÄ‡ tekst itd.
 
 %prep
 %setup -q -n %{pnam}-%{version}
