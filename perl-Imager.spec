@@ -8,20 +8,19 @@
 Summary:	Imager - Perl extension for generating images
 Summary(pl.UTF-8):	Imager - rozszerzenie Perla do generowania obrazków
 Name:		perl-Imager
-Version:	0.43
+Version:	0.56
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
-# Source0-md5:	53b25b7de75625bfc9c9c3a44c8c2f76
-Patch0:		%{name}-tiff.patch
+Source0:	http://www.cpan.org/modules/by-module/Imager/%{pnam}-%{version}.tar.gz
+# Source0-md5:	42e8b0388541eab11655ab4695918b8d
 URL:		http://www.develop-help.com/imager/
 BuildRequires:	freetype-devel >= 2.0
+BuildRequires:	giflib-devel >= 4.1.0-4
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
-BuildRequires:	giflib-devel >= 4.1.0-4
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -40,11 +39,10 @@ skalować, obcinać, nanosić tekst itd.
 
 %prep
 %setup -q -n %{pnam}-%{version}
-%patch0 -p1
 
 %build
 # manual configuration: we want freetype2 enabled and freetype1 disabled
-# y/n for: win32, ft1, t1lib, ft2, tiff, png, ungif, jpeg, gif, nogif
+# y/n for: win32, ft1, t1lib, ft2, tiff, png, ungif, jpeg, gif
 IM_MANUAL=y \
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor <<EOF
@@ -55,10 +53,9 @@ n
 y
 y
 y
+n
 y
 y
-n
-n
 EOF
 
 %{__make} \
@@ -81,10 +78,27 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes README
-%{perl_vendorarch}/%{pdir}.pm
-%{perl_vendorarch}/%{pdir}
-%dir %{perl_vendorarch}/auto/%{pdir}
-%{perl_vendorarch}/auto/%{pdir}/%{pdir}.bs
-%attr(755,root,root) %{perl_vendorarch}/auto/%{pdir}/%{pdir}.so
-%dir %{perl_vendorlib}/%{pdir}
+%{perl_vendorarch}/Imager.pm
+%{perl_vendorarch}/Imager
+%dir %{perl_vendorarch}/auto/Imager
+%{perl_vendorarch}/auto/Imager/Imager.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Imager/Imager.so
+%dir %{perl_vendorarch}/auto/Imager/CountColor
+%{perl_vendorarch}/auto/Imager/CountColor/CountColor.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Imager/CountColor/CountColor.so
+%dir %{perl_vendorarch}/auto/Imager/File
+%dir %{perl_vendorarch}/auto/Imager/File/ICO
+%{perl_vendorarch}/auto/Imager/File/ICO/ICO.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/ICO/ICO.so
+%dir %{perl_vendorarch}/auto/Imager/Filter
+%dir %{perl_vendorarch}/auto/Imager/Filter/DynTest
+%{perl_vendorarch}/auto/Imager/Filter/DynTest/DynTest.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Imager/Filter/DynTest/DynTest.so
+%dir %{perl_vendorarch}/auto/Imager/Filter/Flines
+%{perl_vendorarch}/auto/Imager/Filter/Flines/Flines.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Imager/Filter/Flines/Flines.so
+%dir %{perl_vendorarch}/auto/Imager/Filter/Mandelbrot
+%{perl_vendorarch}/auto/Imager/Filter/Mandelbrot/Mandelbrot.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Imager/Filter/Mandelbrot/Mandelbrot.so
+%dir %{perl_vendorlib}/Imager
 %{_mandir}/man3/*
