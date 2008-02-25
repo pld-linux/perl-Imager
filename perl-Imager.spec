@@ -91,6 +91,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{perl_vendorarch}/auto/Imager/File/ICO
 %{perl_vendorarch}/auto/Imager/File/ICO/ICO.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/ICO/ICO.so
+%dir %{perl_vendorarch}/auto/Imager/File/SGI
+%{perl_vendorarch}/auto/Imager/File/SGI/SGI.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/SGI/SGI.so
 %dir %{perl_vendorarch}/auto/Imager/Filter
 %dir %{perl_vendorarch}/auto/Imager/Filter/DynTest
 %{perl_vendorarch}/auto/Imager/Filter/DynTest/DynTest.bs
@@ -102,4 +105,4 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/auto/Imager/Filter/Mandelbrot/Mandelbrot.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/Filter/Mandelbrot/Mandelbrot.so
 %dir %{perl_vendorlib}/Imager
-%{_mandir}/man3/*
+%{_mandir}/man3/Imager*.3pm*
