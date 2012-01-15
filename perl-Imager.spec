@@ -8,13 +8,13 @@
 Summary:	Imager - Perl extension for generating images
 Summary(pl.UTF-8):	Imager - rozszerzenie Perla do generowania obrazków
 Name:		perl-Imager
-Version:	0.71
-Release:	5
+Version:	0.87
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Imager/%{pnam}-%{version}.tar.gz
-# Source0-md5:	99137240f3e6df6cf4e3c76d19d1944e
+# Source0-md5:	fa4c46df54277c211829d5472502a23b
 URL:		http://www.develop-help.com/imager/
 BuildRequires:	freetype-devel >= 2.0
 BuildRequires:	giflib-devel >= 4.1.0-4
@@ -88,12 +88,24 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/auto/Imager/CountColor/CountColor.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/CountColor/CountColor.so
 %dir %{perl_vendorarch}/auto/Imager/File
+%dir %{perl_vendorarch}/auto/Imager/File/GIF
+%{perl_vendorarch}/auto/Imager/File/GIF/GIF.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/GIF/GIF.so
 %dir %{perl_vendorarch}/auto/Imager/File/ICO
 %{perl_vendorarch}/auto/Imager/File/ICO/ICO.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/ICO/ICO.so
+%dir %{perl_vendorarch}/auto/Imager/File/JPEG
+%{perl_vendorarch}/auto/Imager/File/JPEG/JPEG.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/JPEG/JPEG.so
+%dir %{perl_vendorarch}/auto/Imager/File/PNG
+%{perl_vendorarch}/auto/Imager/File/PNG/PNG.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/PNG/PNG.so
 %dir %{perl_vendorarch}/auto/Imager/File/SGI
 %{perl_vendorarch}/auto/Imager/File/SGI/SGI.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/SGI/SGI.so
+%dir %{perl_vendorarch}/auto/Imager/File/TIFF
+%{perl_vendorarch}/auto/Imager/File/TIFF/TIFF.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/TIFF/TIFF.so
 %dir %{perl_vendorarch}/auto/Imager/Filter
 %dir %{perl_vendorarch}/auto/Imager/Filter/DynTest
 %{perl_vendorarch}/auto/Imager/Filter/DynTest/DynTest.bs
@@ -104,5 +116,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{perl_vendorarch}/auto/Imager/Filter/Mandelbrot
 %{perl_vendorarch}/auto/Imager/Filter/Mandelbrot/Mandelbrot.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/Filter/Mandelbrot/Mandelbrot.so
+%dir %{perl_vendorarch}/auto/Imager/Font
+%dir %{perl_vendorarch}/auto/Imager/Font/FT2
+%{perl_vendorarch}/auto/Imager/Font/FT2/FT2.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Imager/Font/FT2/FT2.so
 %dir %{perl_vendorlib}/Imager
 %{_mandir}/man3/Imager*.3pm*
