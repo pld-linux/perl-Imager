@@ -8,13 +8,13 @@
 Summary:	Imager - Perl extension for generating images
 Summary(pl.UTF-8):	Imager - rozszerzenie Perla do generowania obrazków
 Name:		perl-Imager
-Version:	0.87
-Release:	3
+Version:	0.96
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Imager/%{pnam}-%{version}.tar.gz
-# Source0-md5:	fa4c46df54277c211829d5472502a23b
+# Source0-md5:	518b5a40db0ec71ec3bf718f53b4e739
 URL:		http://www.develop-help.com/imager/
 BuildRequires:	freetype-devel >= 2.0
 BuildRequires:	giflib-devel >= 4.1.0-4
@@ -23,6 +23,7 @@ BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	t1lib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -120,5 +121,8 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{perl_vendorarch}/auto/Imager/Font/FT2
 %{perl_vendorarch}/auto/Imager/Font/FT2/FT2.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/Font/FT2/FT2.so
+%dir %{perl_vendorarch}/auto/Imager/Font/T1
+%{perl_vendorarch}/auto/Imager/Font/T1/T1.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Imager/Font/T1/T1.so
 %dir %{perl_vendorlib}/Imager
 %{_mandir}/man3/Imager*.3pm*
