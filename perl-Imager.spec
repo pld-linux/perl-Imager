@@ -83,46 +83,33 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/Imager.pm
 %{perl_vendorarch}/Imager
 %dir %{perl_vendorarch}/auto/Imager
-%{perl_vendorarch}/auto/Imager/Imager.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/Imager.so
 %dir %{perl_vendorarch}/auto/Imager/CountColor
-%{perl_vendorarch}/auto/Imager/CountColor/CountColor.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/CountColor/CountColor.so
 %dir %{perl_vendorarch}/auto/Imager/File
 %dir %{perl_vendorarch}/auto/Imager/File/GIF
-%{perl_vendorarch}/auto/Imager/File/GIF/GIF.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/GIF/GIF.so
 %dir %{perl_vendorarch}/auto/Imager/File/ICO
-%{perl_vendorarch}/auto/Imager/File/ICO/ICO.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/ICO/ICO.so
 %dir %{perl_vendorarch}/auto/Imager/File/JPEG
-%{perl_vendorarch}/auto/Imager/File/JPEG/JPEG.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/JPEG/JPEG.so
 %dir %{perl_vendorarch}/auto/Imager/File/PNG
-%{perl_vendorarch}/auto/Imager/File/PNG/PNG.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/PNG/PNG.so
 %dir %{perl_vendorarch}/auto/Imager/File/SGI
-%{perl_vendorarch}/auto/Imager/File/SGI/SGI.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/SGI/SGI.so
 %dir %{perl_vendorarch}/auto/Imager/File/TIFF
-%{perl_vendorarch}/auto/Imager/File/TIFF/TIFF.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/TIFF/TIFF.so
 %dir %{perl_vendorarch}/auto/Imager/Filter
 %dir %{perl_vendorarch}/auto/Imager/Filter/DynTest
-%{perl_vendorarch}/auto/Imager/Filter/DynTest/DynTest.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/Filter/DynTest/DynTest.so
 %dir %{perl_vendorarch}/auto/Imager/Filter/Flines
-%{perl_vendorarch}/auto/Imager/Filter/Flines/Flines.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/Filter/Flines/Flines.so
 %dir %{perl_vendorarch}/auto/Imager/Filter/Mandelbrot
-%{perl_vendorarch}/auto/Imager/Filter/Mandelbrot/Mandelbrot.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/Filter/Mandelbrot/Mandelbrot.so
 %dir %{perl_vendorarch}/auto/Imager/Font
 %dir %{perl_vendorarch}/auto/Imager/Font/FT2
-%{perl_vendorarch}/auto/Imager/Font/FT2/FT2.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/Font/FT2/FT2.so
 %dir %{perl_vendorarch}/auto/Imager/Font/T1
-%{perl_vendorarch}/auto/Imager/Font/T1/T1.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Imager/Font/T1/T1.so
 %dir %{perl_vendorlib}/Imager
 %{_mandir}/man3/Imager*.3pm*
