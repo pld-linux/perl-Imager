@@ -42,22 +42,14 @@ skalować, obcinać, nanosić tekst itd.
 %setup -q -n %{pnam}-%{version}
 
 %build
-# manual configuration: we want freetype2 enabled and freetype1 disabled
-# y/n for: win32, ft1, t1lib, ft2, tiff, png, ungif, jpeg, gif
-IM_MANUAL=y \
 %{__perl} Makefile.PL \
-	INSTALLDIRS=vendor <<EOF
-
-n
-n
-n
-y
-y
-y
-n
-y
-y
-EOF
+	INSTALLDIRS=vendor \
+	--enable ft2 \
+	--enable gif \
+	--enable jpeg \
+	--enable png \
+	--enable t1 \
+	--enable tiff
 
 %{__make} \
 	CC="%{__cc}" \
@@ -72,7 +64,7 @@ install -d $RPM_BUILD_ROOT%{perl_vendorlib}/Imager
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{perl_vendorarch}/Imager/*.pod
+%{__rm} $RPM_BUILD_ROOT%{perl_vendorarch}/Imager/*.pod
 
 %clean
 rm -rf $RPM_BUILD_ROOT
