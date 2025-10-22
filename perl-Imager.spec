@@ -7,13 +7,13 @@
 Summary:	Imager - Perl extension for generating images
 Summary(pl.UTF-8):	Imager - rozszerzenie Perla do generowania obrazków
 Name:		perl-Imager
-Version:	1.028
-Release:	3
+Version:	1.029
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Imager/%{pnam}-%{version}.tar.gz
-# Source0-md5:	ff2d19333beb96ba29c07d741f5c1e80
+# Source0-md5:	1494c63d46cc7f300ca7f7ff0d0c0733
 URL:		http://imager.perl.org/
 BuildRequires:	freetype-devel >= 2.0
 BuildRequires:	giflib-devel >= 4.1.0-4
