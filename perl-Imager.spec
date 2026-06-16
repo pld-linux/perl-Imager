@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	tests	# do not perform "make test"
+%bcond_without	tests	# unit tests
 #
 %define		pdir	Imager
 %define		pnam	Imager
@@ -12,16 +12,23 @@ Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/Imager/%{pnam}-%{version}.tar.gz
+Source0:	https://www.cpan.org/modules/by-module/Imager/TONYC/%{pnam}-%{version}.tar.gz
 # Source0-md5:	894207dcc29cd6b69e0be847ea6e73c2
-URL:		http://imager.perl.org/
+URL:		https://metacpan.org/dist/Imager
 BuildRequires:	freetype-devel >= 2.0
 BuildRequires:	giflib-devel >= 4.1.0-4
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
+BuildRequires:	perl-ExtUtils-MakeMaker
 BuildRequires:	perl-devel >= 1:5.8.0
+%if %{with tests}
+BuildRequires:	perl(Exporter) >= 5.57
+BuildRequires:	perl-Scalar-List-Utils >= 1.00
+BuildRequires:	perl-Test-Simple >= 0.99
+%endif
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 BuildRequires:	t1lib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -54,7 +61,9 @@ skalować, obcinać, nanosić tekst itd.
 	CC="%{__cc}" \
 	OPTIMIZE="%{rpmcflags}"
 
-%{?with_tests:%{__make} test}
+%if %{with tests}
+%{__make} test
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -72,37 +81,37 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changes README
+%doc Changes README SECURITY.md
 %{perl_vendorarch}/Imager.pm
 %{perl_vendorarch}/Imager
 %dir %{perl_vendorarch}/auto/Imager
-%attr(755,root,root) %{perl_vendorarch}/auto/Imager/Imager.so
+%{perl_vendorarch}/auto/Imager/Imager.so
 %dir %{perl_vendorarch}/auto/Imager/CountColor
-%attr(755,root,root) %{perl_vendorarch}/auto/Imager/CountColor/CountColor.so
+%{perl_vendorarch}/auto/Imager/CountColor/CountColor.so
 %dir %{perl_vendorarch}/auto/Imager/File
 %dir %{perl_vendorarch}/auto/Imager/File/GIF
-%attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/GIF/GIF.so
+%{perl_vendorarch}/auto/Imager/File/GIF/GIF.so
 %dir %{perl_vendorarch}/auto/Imager/File/ICO
-%attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/ICO/ICO.so
+%{perl_vendorarch}/auto/Imager/File/ICO/ICO.so
 %dir %{perl_vendorarch}/auto/Imager/File/JPEG
-%attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/JPEG/JPEG.so
+%{perl_vendorarch}/auto/Imager/File/JPEG/JPEG.so
 %dir %{perl_vendorarch}/auto/Imager/File/PNG
-%attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/PNG/PNG.so
+%{perl_vendorarch}/auto/Imager/File/PNG/PNG.so
 %dir %{perl_vendorarch}/auto/Imager/File/SGI
-%attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/SGI/SGI.so
+%{perl_vendorarch}/auto/Imager/File/SGI/SGI.so
 %dir %{perl_vendorarch}/auto/Imager/File/TIFF
-%attr(755,root,root) %{perl_vendorarch}/auto/Imager/File/TIFF/TIFF.so
+%{perl_vendorarch}/auto/Imager/File/TIFF/TIFF.so
 %dir %{perl_vendorarch}/auto/Imager/Filter
 %dir %{perl_vendorarch}/auto/Imager/Filter/DynTest
-%attr(755,root,root) %{perl_vendorarch}/auto/Imager/Filter/DynTest/DynTest.so
+%{perl_vendorarch}/auto/Imager/Filter/DynTest/DynTest.so
 %dir %{perl_vendorarch}/auto/Imager/Filter/Flines
-%attr(755,root,root) %{perl_vendorarch}/auto/Imager/Filter/Flines/Flines.so
+%{perl_vendorarch}/auto/Imager/Filter/Flines/Flines.so
 %dir %{perl_vendorarch}/auto/Imager/Filter/Mandelbrot
-%attr(755,root,root) %{perl_vendorarch}/auto/Imager/Filter/Mandelbrot/Mandelbrot.so
+%{perl_vendorarch}/auto/Imager/Filter/Mandelbrot/Mandelbrot.so
 %dir %{perl_vendorarch}/auto/Imager/Font
 %dir %{perl_vendorarch}/auto/Imager/Font/FT2
-%attr(755,root,root) %{perl_vendorarch}/auto/Imager/Font/FT2/FT2.so
+%{perl_vendorarch}/auto/Imager/Font/FT2/FT2.so
 %dir %{perl_vendorarch}/auto/Imager/Font/T1
-%attr(755,root,root) %{perl_vendorarch}/auto/Imager/Font/T1/T1.so
+%{perl_vendorarch}/auto/Imager/Font/T1/T1.so
 %dir %{perl_vendorlib}/Imager
 %{_mandir}/man3/Imager*.3pm*
